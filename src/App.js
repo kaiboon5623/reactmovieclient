@@ -132,9 +132,9 @@ class App extends Component {
             <Col>
               <Form onSubmit={this.onSubmit}>
                 <FormGroup>
-                  <Label for="title">Enter hero ID</Label>
+                  <Label for="id">Enter hero ID</Label>
                   <Input
-                    title="id"
+                    id="id"
                     placeholder="Enter Hero ID"
                     onChange={this.onChange}
                   />
