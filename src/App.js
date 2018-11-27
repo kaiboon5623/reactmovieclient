@@ -37,7 +37,7 @@ class App extends Component {
 
   getAllHeroes = () => {
     axios
-      .get('https://localhost:3000/getallheroes')
+      .get('https://mysterious-reaches-89583.herokuapp.com/getallheroes')
       .then(result => {
         this.setState({ Overwatch: result.data });
       })
@@ -55,7 +55,9 @@ class App extends Component {
     e.preventDefault();
     this.setState({ alertVisible: false });
 
-    const query = `https://localhost:3000/gethero?id=${this.state.id}`;
+    const query = ` https://mysterious-reaches-89583.herokuapp.com/gethero?id=${
+      this.state.id
+    }`;
 
     console.log(query);
 
@@ -86,7 +88,7 @@ class App extends Component {
         if (assignment.id !== id) return assignment;
       })
     });
-    const query = `https://localhost:3000/deletehero?id=${id}`;
+    const query = ` https://mysterious-reaches-89583.herokuapp.com/deletehero?id=${id}`;
     axios
       .get(query)
       .then(result => {
