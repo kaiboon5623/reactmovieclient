@@ -35,7 +35,7 @@ class App extends Component {
     this.setState({ alertVisible: false });
   }
 
-  getAllHeroes = () => {
+  getallheroes = () => {
     axios
       .get('https://mysterious-reaches-89583.herokuapp.com/getallheroes')
       .then(result => {
@@ -47,7 +47,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.getAllHeroes();
+    this.getallheroes();
   }
 
   //for form
@@ -68,7 +68,7 @@ class App extends Component {
         if (result.data === 'Not found') {
           this.setState({ alertVisible: true });
         }
-        this.getAllHeroes();
+        this.getallheroes();
       })
       .catch(error => {
         alert('Error: ', error);
@@ -92,7 +92,7 @@ class App extends Component {
     axios
       .get(query)
       .then(result => {
-        this.getAllHeroes();
+        this.getallheroes();
       })
       .catch(error => {
         alert('Error: ', error);

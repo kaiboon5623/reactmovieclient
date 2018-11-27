@@ -28,10 +28,11 @@ export class MovieCard extends Component {
     return (
       <div>
         <Card>
-          <CardImg top width="100%" alt="Card image cap" />
+          {/* <CardImg top width="100%" alt="Card image cap" /> */}
           <CardBody>
-            <CardTitle>{id}</CardTitle>
-            <CardSubtitle>{name}</CardSubtitle>
+            <CardTitle>{name}</CardTitle>
+            <CardSubtitle>{id}</CardSubtitle>
+            <CardSubtitle>{youtubeurl}</CardSubtitle>
             <CardText>{description}</CardText>
 
             <Button color="primary" onClick={() => this.props.removehero(id)}>
