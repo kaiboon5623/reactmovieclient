@@ -22,8 +22,8 @@ class App extends Component {
     super();
     this.state = {
       alertVisible: false,
-      title: '',
-      movies: []
+      id: '',
+      Overwatch: []
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -35,11 +35,11 @@ class App extends Component {
     this.setState({ alertVisible: false });
   }
 
-  getAllMovies = () => {
+  getAllHeroes = () => {
     axios
-      .get('https://mysterious-reaches-89583.herokuapp.com/getallmovies')
+      .get('https://localhost:3000/getallheroes')
       .then(result => {
-        this.setState({ movies: result.data });
+        this.setState({ Overwatch: result.data });
       })
       .catch(error => {
         console.log(error);
@@ -47,7 +47,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.getAllMovies();
+    this.getAllHeroes();
   }
 
   //for form
@@ -55,9 +55,7 @@ class App extends Component {
     e.preventDefault();
     this.setState({ alertVisible: false });
 
-    const query = `https://mysterious-reaches-89583.herokuapp.com/getmovie?title=${
-      this.state.title
-    }`;
+    const query = `https://localhost:3000/gethero?id=${this.state.id}`;
 
     console.log(query);
 
@@ -68,7 +66,7 @@ class App extends Component {
         if (result.data === 'Not found') {
           this.setState({ alertVisible: true });
         }
-        this.getAllMovies();
+        this.getAllHeroes();
       })
       .catch(error => {
         alert('Error: ', error);
@@ -78,21 +76,21 @@ class App extends Component {
   // for form field
   onChange(e) {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.id]: e.target.value
     });
   }
 
-  removeMovie(title) {
+  removehero(id) {
     this.setState({
-      movies: this.state.movies.filter(movie => {
-        if (movie.title !== title) return movie;
+      Overwatch: this.state.Overwatch.filter(assignment => {
+        if (assignment.id !== id) return assignment;
       })
     });
-    const query = `https://mysterious-reaches-89583.herokuapp.com/deletemovie?title=${title}`;
+    const query = `https://localhost:3000/deletehero?id=${id}`;
     axios
       .get(query)
       .then(result => {
-        this.getAllMovies();
+        this.getAllHeroes();
       })
       .catch(error => {
         alert('Error: ', error);
@@ -100,10 +98,13 @@ class App extends Component {
   }
 
   render() {
-    let movieCards = this.state.movies.map(movie => {
+    let movieCards = this.state.Overwatch.map(assignment => {
       return (
-        <Col sm="4" key={movie.title}>
-          <MovieCard removeMovie={this.removeMovie.bind(this)} movie={movie} />
+        <Col sm="4" key={assignment.id}>
+          <MovieCard
+            removehero={this.removehero.bind(this)}
+            assignment={assignment}
+          />
         </Col>
       );
     });
@@ -111,8 +112,8 @@ class App extends Component {
       <div className="App">
         <Container>
           <Jumbotron id="jumboheader">
-            <h1 className="display-4">Movie Search</h1>
-            <p className="lead">Search for movies</p>
+            <h1 className="display-4">Overwatch Hero</h1>
+            <p className="lead">Search for Overwatch Hero</p>
           </Jumbotron>
           <Row>
             <Col>
@@ -121,7 +122,7 @@ class App extends Component {
                 isOpen={this.state.alertVisible}
                 toggle={this.onDismiss}
               >
-                Movie not found
+                Hero Not Found
               </Alert>
             </Col>
           </Row>
@@ -129,12 +130,10 @@ class App extends Component {
             <Col>
               <Form onSubmit={this.onSubmit}>
                 <FormGroup>
-                  <Label for="title">Enter movie title</Label>
+                  <Label for="title">Enter hero ID</Label>
                   <Input
-                    type="text"
-                    name="title"
-                    id="title"
-                    placeholder="enter movie title..."
+                    title="id"
+                    placeholder="Enter Hero ID"
                     onChange={this.onChange}
                   />
                 </FormGroup>

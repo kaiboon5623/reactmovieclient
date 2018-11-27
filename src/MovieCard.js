@@ -16,20 +16,25 @@ export class MovieCard extends Component {
   }
 
   render() {
-    let { title, year, genre, actors, plot, poster } = this.props.movie;
+    let {
+      id,
+      name,
+      description,
+      health,
+      age,
+      height,
+      youtubeurl
+    } = this.props.assignment;
     return (
       <div>
         <Card>
-          <CardImg top width="100%" src={poster} alt="Card image cap" />
+          <CardImg top width="100%" alt="Card image cap" />
           <CardBody>
-            <CardTitle>{title}</CardTitle>
-            <CardSubtitle>{year}</CardSubtitle>
-            <CardText>{plot}</CardText>
+            <CardTitle>{id}</CardTitle>
+            <CardSubtitle>{name}</CardSubtitle>
+            <CardText>{description}</CardText>
 
-            <Button
-              color="primary"
-              onClick={() => this.props.removeMovie(title)}
-            >
+            <Button color="primary" onClick={() => this.props.removehero(id)}>
               Delete
             </Button>
           </CardBody>
