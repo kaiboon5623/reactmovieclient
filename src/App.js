@@ -38,7 +38,7 @@ class App extends Component {
 
   getallheroes = () => {
     axios
-      .get('https://mysterious-reaches-89583.herokuapp.com/getallheroes')
+      .get('https://shrouded-everglades-45747.herokuapp.com/getallheroes')
       .then(result => {
         this.setState({ Overwatch: result.data });
       })
@@ -56,7 +56,7 @@ class App extends Component {
     e.preventDefault();
     this.setState({ alertVisible: false });
 
-    const query = ` https://mysterious-reaches-89583.herokuapp.com/gethero?id=${
+    const query = ` https://shrouded-everglades-45747.herokuapp.com/gethero?id=${
       this.state.id
     }`;
 
@@ -89,7 +89,7 @@ class App extends Component {
         if (assignment.id !== id) return assignment;
       })
     });
-    const query = ` https://mysterious-reaches-89583.herokuapp.com/deletehero?id=${id}`;
+    const query = ` https://shrouded-everglades-45747.herokuapp.com/deletehero?id=${id}`;
     axios
       .get(query)
       .then(result => {
