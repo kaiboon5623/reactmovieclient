@@ -23,16 +23,19 @@ export class MovieCard extends Component {
       health,
       age,
       height,
-      youtubeurl
+      youtubeurl,
+      youtubeimg
     } = this.props.assignment;
     return (
       <div>
         <Card>
-          {/* <CardImg top width="100%" alt="Card image cap" /> */}
+          <CardImg src={youtubeimg} top width="100%" alt="Card image cap" />
           <CardBody>
             <CardTitle>{name}</CardTitle>
             <CardSubtitle>{id}</CardSubtitle>
+            <br />
             <CardSubtitle>{youtubeurl}</CardSubtitle>
+            <br />
             <CardText>{description}</CardText>
 
             <Button color="primary" onClick={() => this.props.removehero(id)}>

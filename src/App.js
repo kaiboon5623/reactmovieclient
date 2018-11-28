@@ -14,7 +14,8 @@ import {
   FormGroup,
   Label,
   Input,
-  FormText
+  FormText,
+  UncontrolledCarousel
 } from 'reactstrap';
 
 class App extends Component {
