@@ -32,6 +32,24 @@
 }
 
 #jumboheader {
-  height: 250px;
-  background-color: #4fc3f7;
+  height: 400px;
+  /* background-color: #4fc3f7; */
+  background: url(https://i.ytimg.com/vi/2Vc7rQPO-1c/maxresdefault_live.jpg);
+}
+
+.font-color {
+  margin-top: 20px;
+  color: white;
+}
+
+.footerhome {
+  background-color: rgb(91, 234, 253);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  bottom: 0;
+  margin-top: 15px;
+}
+
+.footerhome > p {
+  margin-bottom: 0px !important;
 }

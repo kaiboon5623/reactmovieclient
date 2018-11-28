@@ -113,11 +113,15 @@ class App extends Component {
     });
     return (
       <div className="App">
+        <Jumbotron id="jumboheader">
+          <h1 className="display-4 font-color">
+            <b>Overwatch Hero</b>
+          </h1>
+          <p className="lead">
+            <b>Search for Overwatch Hero</b>
+          </p>
+        </Jumbotron>
         <Container>
-          <Jumbotron id="jumboheader">
-            <h1 className="display-4">Overwatch Hero</h1>
-            <p className="lead">Search for Overwatch Hero</p>
-          </Jumbotron>
           <Row>
             <Col>
               <Alert
@@ -147,6 +151,9 @@ class App extends Component {
           <p />
           <Row>{movieCards}</Row>
         </Container>
+        <footer className="footerhome">
+          <p>Copyright &copy; KB Company. All Right Reserved.</p>
+        </footer>
       </div>
     );
   }
