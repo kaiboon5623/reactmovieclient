@@ -24,12 +24,12 @@ export class MovieCard extends Component {
       age,
       height,
       youtubeurl,
-      youtubeimg
+      tubeimg
     } = this.props.assignment;
     return (
       <div>
         <Card>
-          <CardImg src={youtubeimg} top width="100%" alt="Card image cap" />
+          <CardImg src={tubeimg} top width="100%" alt="Card image cap" />
           <CardBody>
             <CardTitle>{name}</CardTitle>
             <CardSubtitle>{id}</CardSubtitle>
