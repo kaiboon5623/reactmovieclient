@@ -38,7 +38,7 @@ class App extends Component {
 
   getallheroes = () => {
     axios
-      .get('https://shrouded-everglades-45747.herokuapp.com/getallheroes')
+      .get('https://mysterious-reaches-89583.herokuapp.com/getallheroes')
       .then(result => {
         this.setState({ Overwatch: result.data });
       })
@@ -56,7 +56,7 @@ class App extends Component {
     e.preventDefault();
     this.setState({ alertVisible: false });
 
-    const query = ` https://shrouded-everglades-45747.herokuapp.com/gethero?id=${
+    const query = ` https://mysterious-reaches-89583.herokuapp.com/gethero?id=${
       this.state.id
     }`;
 
@@ -89,7 +89,7 @@ class App extends Component {
         if (assignment.id !== id) return assignment;
       })
     });
-    const query = ` https://shrouded-everglades-45747.herokuapp.com/deletehero?id=${id}`;
+    const query = ` https://mysterious-reaches-89583.herokuapp.com/deletehero?id=${id}`;
     axios
       .get(query)
       .then(result => {
@@ -140,7 +140,7 @@ class App extends Component {
                   <Label for="id">Enter hero ID</Label>
                   <Input
                     id="id"
-                    placeholder="Enter Hero ID from 1 to 24"
+                    placeholder="Enter Hero ID"
                     onChange={this.onChange}
                   />
                 </FormGroup>
