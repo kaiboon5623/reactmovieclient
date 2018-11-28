@@ -137,7 +137,7 @@ class App extends Component {
             <Col>
               <Form onSubmit={this.onSubmit}>
                 <FormGroup>
-                  <Label for="id">Enter hero ID</Label>
+                  <Label for="id">Enter hero ID From 1 to 24</Label>
                   <Input
                     id="id"
                     placeholder="Enter Hero ID"
